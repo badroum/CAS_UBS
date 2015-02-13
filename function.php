@@ -64,9 +64,9 @@ function GetRes($user,$pwd)
 	curl_close($curl);//ferme la session curl
 	//echo "result=" . $result;
 	return $result;
-	//*/
-}
 
+}
+	//*/
 function GetCal($user,$pwd, $resource)
 {
 	require('config.php');
