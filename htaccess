@@ -1,16 +1,1 @@
-<Files ical.php function.php config.php>
 
-AuthUserFile /usr/local/bin/www/httpd_1.3/basedenoms/.htpasswd
-AuthGroupFile /usr/local/bin/www/httpd_1.3/basedenoms/.htgroup
-AuthName AccesRestreint
-AuthType Basic
-
-order deny,allow
-deny from all
-allow from .telecom-paristech.fr
-require group intranet
-satisfy all
-
-
-
-</Files>
