@@ -3,18 +3,14 @@
 if(isset($_POST['username'])&&isset($_POST['password']))
 {
     $generate=true;
-    if( strstr("index.php",$_SERVER['REQUEST_URI']))
-    {
-		$ical= str_replace("index.php","ical.php",$_SERVER['REQUEST_URI']);
-    }
-    else
-    {
-		$ical=$_SERVER['REQUEST_URI']."ical.php";
-        
-    }
+
+    $ical= str_replace("index.php","",$_SERVER['REQUEST_URI']);
+
+    $ical=$ical."ical.php";
+
     $tmp_Array = $_POST['resources'];
 
-	$multipl_result="";
+  $multipl_result="";
     foreach ($tmp_Array as $index => $tmp)
     {
         $multipl_result = $multipl_result. "&resource" . $index . "=" . $tmp;
@@ -24,7 +20,7 @@ if(isset($_POST['username'])&&isset($_POST['password']))
 
 
 
-    $url = dirname($_SERVER['SERVER_PROTOCOL']) . "://" . $_SERVER['HTTP_HOST'].$ical . 
+    $url = dirname($_SERVER['SERVER_PROTOCOL']) . "://" . $_SERVER['HTTP_HOST'].$ical .
 "?username=" . $_POST['username'] ."&password=" .$_POST['password'] . $multipl_result;
 
 
@@ -50,119 +46,122 @@ if(isset($_POST['username'])&&isset($_POST['password']))
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css">
+
     </head>
     <body>
         <div class="container">
             <!-- Codrops top bar -->
             <header>
                 <h1>Génération d'une adresse de Calendrier</h1>
-			</header>
+      </header>
             <section>
                 <div id="container" >
-                	<a class="hiddenanchor" id="tofaq"></a>
-	                <a class="hiddenanchor" id="togenerated"></a>
+                  <a class="hiddenanchor" id="tofaq"></a>
+                  <a class="hiddenanchor" id="togenerated"></a>
                     <div id="div_form">
-	                    <div id="generated" class="animate form">
+                      <div id="generated" class="animate form">
                            <form  action="#tofaq" autocomplete="on" method="post">
                                 <h1>Information</h1>
                                 <p>
                                     <label for="username" class="uname info" data-icon="u" >
-										Votre identifiant ubs 
-										<span>Rentrez votre identifiant ubs sous la forme e1234567</span>
-									</label>
+                    Votre identifiant ubs
+                    <span>Rentrez votre identifiant ubs sous la forme e1234567</span>
+                  </label>
                                     <input id="username" name="username" required="required" type="text" placeholder="identifiant ubs"/>
                                 </p>
                                 <p>
                                     <label for="password" class="youpasswd  info" data-icon="p">
-										Votre mots de passe 
-										<span>Rentrez votre mots de passe ubs</span>
-									</label>
+                    Votre mots de passe
+                    <span>Rentrez votre mots de passe ubs</span>
+                  </label>
                                     <input id="password" name="password" required="required" type="password" placeholder="eg.X8df!90EO" />
                                 </p>
                                 <p class="resource">
-									<label for="resources[]" class="youresource info"> 
-										Votre / Vos formation 
-										<span>Sélectionner votre ou vos formation. C'est un champ à sélection multiple, maintenez Ctrl pour sélectionné plusieurs champs</span>
-									</label>
-									<SELECT NAME="resources[]" MULTIPLE SIZE=6 required="required">
-										<?php
-										require('function.php');
-										$resources = SetResources();
-										foreach ($resources as $index => $tmp)
-										{
-											echo "<OPTION VALUE=" . $tmp . ">" . $index . "</option><br />";
-										}
-										?>
-									</SELECT>
-								</p>
-								<p class="login button">
+                  <label for="resources[]" class="youresource info">
+                    Votre / Vos formation
+                    <span>Sélectionner votre ou vos formation. C'est un champ à sélection multiple, maintenez Ctrl pour sélectionné plusieurs champs</span>
+                  </label>
+                  <SELECT NAME="resources[]" MULTIPLE SIZE=6 required="required">
+                    <?php
+                    require('function.php');
+                    $resources = SetResources();
+                    foreach ($resources as $index => $tmp)
+                    {
+                      echo "<OPTION VALUE=" . $tmp . ">" . $index . "</option><br />";
+                    }
+                    ?>
+                  </SELECT>
+                </p>
+                <p class="login button">
                                     <input type="submit" value="Generated" />
-								</p>
-								<p class="change_link">
-									Des questions?
-									<a href="#tofaq" class="to_faq">FAQ</a>
-								</p>
+                </p>
+                <p class="change_link">
+                  Des questions?
+                  <a href="#tofaq" class="to_faq">FAQ</a>
+                </p>
                             </form>
-                            
+
                         </div>
-                            
+
                         <div id="faq" class="animate form">
-                        	<h1>FAQ</h1>
-                        	<?php
-	                            if(isset($generate)&& $generate==true)
-	                            {
-	                                echo "<span class=\"url\">" . $url . "</span>";
-	                            }
+                          <h1>FAQ</h1>
+                             <?php
+                              if(isset($generate)&& $generate==true)
+                              {
+                                  //echo "<span class=\"url\">" . $url . "</span>";
+                                  echo "<input value=".$url."/>";
+
+                              }
                             ?>
-                            
+
                             <div class="accordeon">
-                            	<ul>
-                            		<li>
-                            			<p class="titre">Configuration de Google Calendar</p>
-                            			<div>
-                              			Si vous n’avez pas encore de compte Google (Gmail ou autres), commencez par en créer un.<br />
-										Rendez vous ensuite sur Google Calendar.<br />
-										Sur la gauche dans l’onglet Mes agendas, vous pouvez créer un nouveau calendrier. <br />
-                            			</div>
-                        			</li>
-                        			<li>
-                        				<p class="titre">Configuration de l'iPhone</p>
-                        				<div class="img">
-                        					Depuis l’iPhone, allez dans Réglages:
-                        					<article >
-                        						<span>Cliquez sur Mail, Contacts, Calendrier, puis sur Ajouter un compte</span>
-                        						
-                        						<img src="images/faq/iphone/iPhone1.jpeg" alt="Mail, Contacts, Calendrier" />
-                        						<span>Cliquez sur Autre</span>
-                        						<img src="images/faq/iphone/iPhone2.jpeg" alt="Alternative texte de l'image" />
-                        						<span>Cliquez sur Ajouté un cal avec abonnement</span>
-                        						<img src="images/faq/iphone/iPhone3.jpeg" alt="Alternative texte de l'image" />
-                        						<span>Rentrez l'adresse générée dans le serveur</span>
-                        						<img src="images/faq/iphone/iPhone4.jpeg" alt="Alternative texte de l'image" />
-                        						<span>Si une erreur intervient verifier bien que la connection SSL est desactivé</span>
-                        						<img src="images/faq/iphone/iPhone5.jpeg" alt="Alternative texte de l'image" />
-                        						<span>Exemple de syncronisation</span>
-                        						<img src="images/faq/iphone/iPhone6.jpeg" alt="Alternative texte de l'image" />
-                        						<img src="images/faq/iphone/iPhone7.jpeg" alt="Alternative texte de l'image" />
-                        					
-                        					
-                        				</div>
-                    				</li>
-                    				<li>
-                    					<p class="titre">Configuration d'Android</p>
-                    					<div>  à venir  </div>
-                					</li>
-                					<!--li>
-                						<p class="titre">Menu 4</p>
-                						<div>  Votre contenu textuel...  </div>
-            						</li-->
-        						</ul>
-    						</div>
-		                    <p class="change_link">
-								Généré un lien.
-								<a href="#togenerated" class="to_generated">Generated</a>
-							</p>
-                    	</div>
+                              <ul>
+                                <li>
+                                  <p class="titre">Configuration de Google Calendar</p>
+                                  <div>
+                                    Si vous n’avez pas encore de compte Google (Gmail ou autres), commencez par en créer un.<br />
+                    Rendez vous ensuite sur Google Calendar.<br />
+                    Sur la gauche dans l’onglet Mes agendas, vous pouvez créer un nouveau calendrier. <br />
+                                  </div>
+                              </li>
+                              <li>
+                                <p class="titre">Configuration de l'iPhone</p>
+                                <div class="img">
+                                  Depuis l’iPhone, allez dans Réglages:
+                                  <article >
+                                    <span>Cliquez sur Mail, Contacts, Calendrier, puis sur Ajouter un compte</span>
+
+                                    <img src="images/faq/iphone/iPhone1.jpeg" alt="Mail, Contacts, Calendrier" />
+                                    <span>Cliquez sur Autre</span>
+                                    <img src="images/faq/iphone/iPhone2.jpeg" alt="Alternative texte de l'image" />
+                                    <span>Cliquez sur Ajouté un cal avec abonnement</span>
+                                    <img src="images/faq/iphone/iPhone3.jpeg" alt="Alternative texte de l'image" />
+                                    <span>Rentrez l'adresse générée dans le serveur</span>
+                                    <img src="images/faq/iphone/iPhone4.jpeg" alt="Alternative texte de l'image" />
+                                    <span>Si une erreur intervient verifier bien que la connection SSL est desactivé</span>
+                                    <img src="images/faq/iphone/iPhone5.jpeg" alt="Alternative texte de l'image" />
+                                    <span>Exemple de syncronisation</span>
+                                    <img src="images/faq/iphone/iPhone6.jpeg" alt="Alternative texte de l'image" />
+                                    <img src="images/faq/iphone/iPhone7.jpeg" alt="Alternative texte de l'image" />
+
+
+                                </div>
+                            </li>
+                            <li>
+                              <p class="titre">Configuration d'Android</p>
+                              <div>  à venir  </div>
+                          </li>
+                          <li>
+                            <p class="titre">Configuration de WindowsPhone</p>
+                            <div> Ça tombera certainement en marche un jour </div>
+                        </li>
+                    </ul>
+                </div>
+                        <p class="change_link">
+                Généré un lien.
+                <a href="#togenerated" class="to_generated">Generated</a>
+              </p>
+                      </div>
                     </div>
                 </div>
             </section>
