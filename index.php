@@ -49,6 +49,7 @@ if(isset($_POST['username'])&&isset($_POST['password']))
         <link rel="shortcut icon" href="images/favicon.ico">
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate-custom.css">
     </head>
     <body>
         <div class="container">
@@ -58,17 +59,11 @@ if(isset($_POST['username'])&&isset($_POST['password']))
 			</header>
             <section>
                 <div id="container" >
+                	<a class="hiddenanchor" id="tofaq"></a>
+	                <a class="hiddenanchor" id="togenerated"></a>
                     <div id="div_form">
-                        <div id="login" class="animate form">
-                        <?php
-                            if(isset($generate)&& $generate==true)
-                            {
-                                echo "<span class=\"url\">" . $url . "</span>";
-                            }
-                            else
-                            {
-                            ?>
-                            <form  action="#" autocomplete="on" method="post">
+	                    <div id="generated" class="animate form">
+                           <form  action="#tofaq" autocomplete="on" method="post">
                                 <h1>Information</h1>
                                 <p>
                                     <label for="username" class="uname info" data-icon="u" >
@@ -103,11 +98,71 @@ if(isset($_POST['username'])&&isset($_POST['password']))
 								<p class="login button">
                                     <input type="submit" value="Generated" />
 								</p>
+								<p class="change_link">
+									Des questions?
+									<a href="#tofaq" class="to_faq">FAQ</a>
+								</p>
                             </form>
-                            <?php
-                            }
-                            ?>
+                            
                         </div>
+                            
+                        <div id="faq" class="animate form">
+                        	<h1>FAQ</h1>
+                        	<?php
+	                            if(isset($generate)&& $generate==true)
+	                            {
+	                                echo "<span class=\"url\">" . $url . "</span>";
+	                            }
+                            ?>
+                            
+                            <div class="accordeon">
+                            	<ul>
+                            		<li>
+                            			<p class="titre">Configuration de Google Calendar</p>
+                            			<div>
+                              			Si vous n’avez pas encore de compte Google (Gmail ou autres), commencez par en créer un.<br />
+										Rendez vous ensuite sur Google Calendar.<br />
+										Sur la gauche dans l’onglet Mes agendas, vous pouvez créer un nouveau calendrier. <br />
+                            			</div>
+                        			</li>
+                        			<li>
+                        				<p class="titre">Configuration de l'iPhone</p>
+                        				<div class="img">
+                        					Depuis l’iPhone, allez dans Réglages:
+                        					<article >
+                        						<span>Cliquez sur Mail, Contacts, Calendrier, puis sur Ajouter un compte</span>
+                        						
+                        						<img src="images/faq/iphone/iPhone1.jpeg" alt="Mail, Contacts, Calendrier" />
+                        						<span>Cliquez sur Autre</span>
+                        						<img src="images/faq/iphone/iPhone2.jpeg" alt="Alternative texte de l'image" />
+                        						<span>Cliquez sur Ajouté un cal avec abonnement</span>
+                        						<img src="images/faq/iphone/iPhone3.jpeg" alt="Alternative texte de l'image" />
+                        						<span>Rentrez l'adresse générée dans le serveur</span>
+                        						<img src="images/faq/iphone/iPhone4.jpeg" alt="Alternative texte de l'image" />
+                        						<span>Si une erreur intervient verifier bien que la connection SSL est desactivé</span>
+                        						<img src="images/faq/iphone/iPhone5.jpeg" alt="Alternative texte de l'image" />
+                        						<span>Exemple de syncronisation</span>
+                        						<img src="images/faq/iphone/iPhone6.jpeg" alt="Alternative texte de l'image" />
+                        						<img src="images/faq/iphone/iPhone7.jpeg" alt="Alternative texte de l'image" />
+                        					
+                        					
+                        				</div>
+                    				</li>
+                    				<li>
+                    					<p class="titre">Configuration d'Android</p>
+                    					<div>  à venir  </div>
+                					</li>
+                					<!--li>
+                						<p class="titre">Menu 4</p>
+                						<div>  Votre contenu textuel...  </div>
+            						</li-->
+        						</ul>
+    						</div>
+		                    <p class="change_link">
+								Généré un lien.
+								<a href="#togenerated" class="to_generated">Generated</a>
+							</p>
+                    	</div>
                     </div>
                 </div>
             </section>
