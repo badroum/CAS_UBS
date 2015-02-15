@@ -1,5 +1,4 @@
-
- <?php
+<?php
 //*
 if(isset($_POST['username'])&&isset($_POST['password']))
 {
@@ -73,19 +72,19 @@ if(isset($_POST['username'])&&isset($_POST['password']))
             		</div>
             <!-- Codrops top bar -->
             <header>
-                
+
                 <h1>Génération d'une adresse de Calendrier</h1>
             </header>
             <section>
                 <div id="container" >
-                    
+
                   <a class="hiddenanchor" id="tofaq"></a>
                   <a class="hiddenanchor" id="togenerated"></a>
                     <div id="div_form">
-                    
+
                       <div id="generated" class="animate form">
                            <form  action="#tofaq" autocomplete="on" method="post">
-                           
+
                                 <h1>Information</h1>
                                 <p>
                                     <label for="username" class="uname info" data-icon="u" >

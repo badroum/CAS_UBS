@@ -1,13 +1,8 @@
-<?php  
- define("_BBCLONE_DIR", "bbclone/");  
- define("COUNTER", _BBCLONE_DIR."mark_page.php");  
- if (is_readable(COUNTER)) include_once(COUNTER);  
- ?>
- <?php
+<?php
 /*
 function GetRes($user,$pwd)
 {
-	require('config.php');   
+	require('config.php');
 	//echo "function GetRes";
 	//echo $url_was_resources;
 	$curl = curl_init($url_was_resources);
@@ -30,22 +25,22 @@ function GetRes($user,$pwd)
 	$postfields["_eventId"] ="submit";
 	$postfields["submit"] = "SE CONNECTER";
 	//matche les input hidden obligatoire
-	$re_lt = "/name=\"lt\" value=\"(.*)\"/"; 
+	$re_lt = "/name=\"lt\" value=\"(.*)\"/";
 	preg_match($re_lt, $return, $matche_lt);
 	$postfields["lt"] =$matche_lt[1];
-	$re_exec = "/name=\"execution\" value=\"(.*)\"/";  
+	$re_exec = "/name=\"execution\" value=\"(.*)\"/";
 	preg_match($re_exec, $return, $matche_exec);
 	$postfields["execution"] =$matche_exec[1];
-	$re_action = "/action=\"(.*)\" method=\"post\"/";  
+	$re_action = "/action=\"(.*)\" method=\"post\"/";
 	preg_match($re_action, $return, $matche_action);
 
 	foreach ($postfields as $index => $tmp)
 	{
 		echo '|' . $index . '=' . $tmp . "|<br />";
 	}
-	
+
 	//$curl = curl_init();
-	
+
 	curl_setopt($curl, CURLOPT_URL,$url.$matche_action[1]);
 	curl_setopt($curl, CURLOPT_COOKIESESSION, true);
 	curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true); // autorisation des redirections
@@ -97,13 +92,13 @@ function GetCal($user,$pwd, $resource)
 	$postfields["submit"] = "SE CONNECTER";
 
 	//matche les input hidden obligatoire
-	$re_lt = "/name=\"lt\" value=\"(.*)\"/"; 
+	$re_lt = "/name=\"lt\" value=\"(.*)\"/";
 	preg_match($re_lt, $return, $matche_lt);
 	$postfields["lt"] =$matche_lt[1];
-	$re_exec = "/name=\"execution\" value=\"(.*)\"/";  
+	$re_exec = "/name=\"execution\" value=\"(.*)\"/";
 	preg_match($re_exec, $return, $matche_exec);
 	$postfields["execution"] =$matche_exec[1];
-	$re_action = "/action=\"(.*)\" method=\"post\"/";  
+	$re_action = "/action=\"(.*)\" method=\"post\"/";
 	preg_match($re_action, $return, $matche_action);
 
 	//$curl = curl_init();
@@ -122,7 +117,7 @@ function GetCal($user,$pwd, $resource)
 
 function SetResources()
 {
-	$re_resources = "/check\\((.*), 'true'\\);\\\">(.*)<\\/a>/"; 
+	$re_resources = "/check\\((.*), 'true'\\);\\\">(.*)<\\/a>/";
 	$files = file_get_contents('resources.txt');
 	preg_match_all($re_resources,$files,$matches);
 	for($i=1;$i<count($matches[0]);$i++)
