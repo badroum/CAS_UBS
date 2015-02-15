@@ -415,11 +415,10 @@ p.change_link{
     font-size:80%;
     color:#000;
 }
-.accordeon ul li div {
+.accordeon ul li .faq_info {
     margin:0;
     overflow:auto;
     padding:10px;
-   
 
 	background: rgb(225, 234, 235);
 	background: -moz-repeating-linear-gradient(-45deg, 
@@ -458,6 +457,7 @@ p.change_link{
     font-size:80%;
 }
 .accordeon ul li .titre:hover {  cursor:pointer;  }
+
 .accordeon img {
     width:220px;
 }
@@ -468,4 +468,45 @@ p.change_link{
 
 .accordeon span {
     display:block;
+}
+
+/** Bandeau Beta*/
+#label-container {
+	position: absolute;
+}
+
+#label {
+	padding: 10px 10px;
+	height: auto;
+	width: 160px;
+	text-align: center;
+	font-size: 0.8em;
+	color: #f7f5f3;
+	text-shadow: -2px 1px 0px #6b1010;
+
+	position: relative;
+	top: 15px;
+	left: -50px;
+	z-index: 89;
+
+	-webkit-transform: rotate(-40deg); 
+	-moz-transform: rotate(-40deg);
+	transform: rotate(-40deg);
+	-o-transform: rotate(-40deg);
+
+	background: #dc3a3a;
+	background: -moz-linear-gradient(top,  #dc3a3a,  #b31b1b);
+	background: -webkit-gradient(linear, left top, left bottom, from(#dc3a3a), to(#b31b1b));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#dc3a3a', EndColorStr='#b31b1b', GradientType=0);
+
+	-webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+	-moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+
+	border-top: 1px solid #dc3a3a;
+	border-bottom: 1px solid #b31b1b;
+}
+
+#label p { 
+	line-height: 1.4; 
 }

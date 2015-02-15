@@ -1,3 +1,8 @@
+<?php  
+ define("_BBCLONE_DIR", "bbclone/");  
+ define("COUNTER", _BBCLONE_DIR."mark_page.php");  
+ if (is_readable(COUNTER)) include_once(COUNTER);  
+ ?>
  <?php
 // Log les accès pour voir la charge générée
 $log = fopen('ical_access.log', 'a');

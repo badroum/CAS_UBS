@@ -66,17 +66,26 @@ if(isset($_POST['username'])&&isset($_POST['password']))
 <!-- End Piwik Code -->
     <body>
         <div class="container">
+        <div id="label-container">
+            			<div id="label">
+            				<p>BETA</p>
+            			</div>
+            		</div>
             <!-- Codrops top bar -->
             <header>
+                
                 <h1>Génération d'une adresse de Calendrier</h1>
-      </header>
+            </header>
             <section>
                 <div id="container" >
+                    
                   <a class="hiddenanchor" id="tofaq"></a>
                   <a class="hiddenanchor" id="togenerated"></a>
                     <div id="div_form">
+                    
                       <div id="generated" class="animate form">
                            <form  action="#tofaq" autocomplete="on" method="post">
+                           
                                 <h1>Information</h1>
                                 <p>
                                     <label for="username" class="uname info" data-icon="u" >
@@ -134,7 +143,7 @@ if(isset($_POST['username'])&&isset($_POST['password']))
                               <ul>
                                 <li>
                                   <p class="titre">Configuration de Google Calendar</p>
-                                  <div>
+                                  <div class="faq_info">
                                     Si vous n’avez pas encore de compte Google (Gmail ou autres), commencez par en créer un.<br />
                     Rendez vous ensuite sur Google Calendar.<br />
                     Sur la gauche dans l’onglet Mes agendas, vous pouvez créer un nouveau calendrier. <br />
@@ -142,11 +151,10 @@ if(isset($_POST['username'])&&isset($_POST['password']))
                               </li>
                               <li>
                                 <p class="titre">Configuration de l'iPhone</p>
-                                <div class="img">
+                                <div class="faq_info img">
                                   Depuis l’iPhone, allez dans Réglages:
                                   <article >
                                     <span>Cliquez sur Mail, Contacts, Calendrier, puis sur Ajouter un compte</span>
-
                                     <img src="images/faq/iphone/iPhone1.jpeg" alt="Mail, Contacts, Calendrier" />
                                     <span>Cliquez sur Autre</span>
                                     <img src="images/faq/iphone/iPhone2.jpeg" alt="Alternative texte de l'image" />
@@ -159,18 +167,21 @@ if(isset($_POST['username'])&&isset($_POST['password']))
                                     <span>Exemple de syncronisation</span>
                                     <img src="images/faq/iphone/iPhone6.jpeg" alt="Alternative texte de l'image" />
                                     <img src="images/faq/iphone/iPhone7.jpeg" alt="Alternative texte de l'image" />
-
-
                                 </div>
                             </li>
                             <li>
                               <p class="titre">Configuration d'Android</p>
-                              <div>  à venir  </div>
+                              <div class="faq_info">
+                              	<span>à venir</span>
+                              </div>
                           </li>
                           <li>
                             <p class="titre">Configuration de WindowsPhone</p>
-                            <div> Ça tombera certainement en marche un jour </div>
-                        </li>
+                            <div class="faq_info">
+                            	<span>Ça tombera certainement en marche un jour </span>
+                            	<a href="http://windows.microsoft.com/fr-fr/windows/outlook/calendar-import-vs-subscribe">lien sur la doc officiel</a>
+                        	</div>
+                            </li>
                     </ul>
                 </div>
                         <p class="change_link">
