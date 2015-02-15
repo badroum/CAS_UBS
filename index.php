@@ -1,4 +1,5 @@
-<?php
+
+ <?php
 //*
 if(isset($_POST['username'])&&isset($_POST['password']))
 {
@@ -48,6 +49,21 @@ if(isset($_POST['username'])&&isset($_POST['password']))
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css">
 
     </head>
+    <!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//casbllpbds53.qsml.fr/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//casbllpbds53.qsml.fr/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
     <body>
         <div class="container">
             <!-- Codrops top bar -->
